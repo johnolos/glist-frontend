@@ -5,12 +5,11 @@ export default class Home extends React.Component<any, any> {
         super(props);
     }
 
-
-
-
     public render() {
         return (
-            <h1>Home</h1>
+            <div>
+                <h1>Home</h1>
+            </div>
         )
     }
 }

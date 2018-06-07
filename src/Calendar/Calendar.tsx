@@ -10,7 +10,7 @@ export default class Calendar extends React.Component<any, any> {
     return (
       <div>
         <h1>Calendar</h1>
-        <CalendarView title='Hello World'/>
+        <CalendarView />
       </div>
     );
   }

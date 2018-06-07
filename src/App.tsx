@@ -1,16 +1,25 @@
-import Button from 'antd/lib/button';
 import * as React from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
-import CalendarView from './Calendar/CalendarView';
+import Calendar from './Calendar/Calendar';
+import Home from './Home/Home';
+import './index.css';
 import Nav from './Nav/Nav';
 
 class App extends React.Component {
   public render() {
     return (
       <div className="App">
-        <Nav/>
-        <Button type="primary">Button</Button>
-        <CalendarView title='Hello World'/>
+        <BrowserRouter>
+          <div>
+            <Nav/>
+
+            <Switch>
+              <Route exact={true} path="/" component={Home} />
+              <Route path="/calendar" component={Calendar} />
+            </Switch>
+          </div>
+        </BrowserRouter>
       </div>
     );
   }

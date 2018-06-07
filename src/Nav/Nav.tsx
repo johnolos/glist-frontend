@@ -1,48 +1,28 @@
-import { Button, Menu } from 'antd';
-import { ButtonType } from 'antd/lib/button/button';
-import { ClickParam } from 'antd/lib/menu';
+import { Menu } from 'antd';
 import * as React from 'react';
-// import { withRouter } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 
 
 export declare type Page = 'home' | 'calendar' | 'orgs'
 
 
-export default class Nav extends React.Component<any, any> {
+class Nav extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
-        this.state = {
-            button: {
-                size: 'default'
-            }
-        }
     }
 
     public render() {
         return (
-            <Menu mode='horizontal' onClick={this.handleClick}>
+            <Menu mode='horizontal'>
                 <Menu.Item>
-                    <Button type={this.isPrimary("home")} {...this.state.button}>Home</Button>
+                    <NavLink to="/">Home</NavLink>
                 </Menu.Item>
                 <Menu.Item>
-                    <Button type={this.isPrimary("calendar")} {...this.state.button}>Calendar</Button>
-                </Menu.Item>
-                <Menu.Item>
-                    <Button type={this.isPrimary("orgs")} {...this.state.button}>Organizers</Button>
+                    <NavLink to="/calendar">Calendar</NavLink>
                 </Menu.Item>
             </Menu>
         )
     }
-
-    private isPrimary(page: Page): ButtonType {
-        return page === this.props.page ? 'primary' : 'default';
-    }
-
-    private handleClick(e: ClickParam) {
-        console.log(e.key);
-        console.log(e.item);
-        console.log(e.item);
-        console.log(e.keyPath);
-    }
-
 }
+
+export default withRouter(Nav);
